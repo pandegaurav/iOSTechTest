@@ -38,13 +38,13 @@ class DivisionListViewController: UIViewController {
     }
 
 func showErrorAlert() {
-    let errorAlert = UIAlertController(title: "Error", message: "Unable to fetch data from server do you want to fetch from local", preferredStyle: UIAlertController.Style.alert)
+    let errorAlert = UIAlertController(title: Constants.errorTitle, message: Constants.errorMessage, preferredStyle: UIAlertController.Style.alert)
 
-        errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+    errorAlert.addAction(UIAlertAction(title: Constants.okButtonTitle, style: .default, handler: { (action: UIAlertAction!) in
             self.viewModel.loadDatafromMock()
         }))
 
-        errorAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+    errorAlert.addAction(UIAlertAction(title: Constants.cancelButtonTitle, style: .cancel, handler: { (action: UIAlertAction!) in
 
         }))
         present(errorAlert, animated: true, completion: nil)
