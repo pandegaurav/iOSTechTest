@@ -9,9 +9,9 @@ import UIKit
 
 class HolidayTableViewCell: UITableViewCell {
     // MARK: - IBOutlet
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var buntingImage: UIImageView!
+    @IBOutlet weak private var dateLabel: UILabel!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var buntingImage: UIImageView!
     // MARK: - Variables
     static var identifier: String { return String(describing: self) }
     static var nib: UINib { return UINib(nibName: identifier, bundle: nil) }

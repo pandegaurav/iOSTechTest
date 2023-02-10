@@ -37,7 +37,8 @@ class DivisionListViewController: UIViewController {
         }
     }
 
-func showErrorAlert() {let errorAlert = UIAlertController(title: "Error", message: "Unable to fetch data from server do you want to fetch from local", preferredStyle: UIAlertController.Style.alert)
+func showErrorAlert() {
+    let errorAlert = UIAlertController(title: "Error", message: "Unable to fetch data from server do you want to fetch from local", preferredStyle: UIAlertController.Style.alert)
 
         errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
             self.viewModel.loadDatafromMock()
