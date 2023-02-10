@@ -8,10 +8,10 @@
 import XCTest
 
 final class DivisionViewModelTests: XCTestCase {
-
+    
     var viewModel: DivisionViewModel!
     fileprivate var service: HolidayService!
-
+    
     override func setUp() {
         super.setUp()
         self.service = HolidayService()
@@ -36,7 +36,12 @@ final class DivisionViewModelTests: XCTestCase {
             }
             expectation.fulfill()
         }
-         self.waitForExpectations(timeout: 20, handler: nil)
-            }
-
+        self.waitForExpectations(timeout: 20, handler: nil)
+    }
+    
+    func test_loadDatafromMock(){
+        viewModel.loadDatafromMock()
+        XCTAssertNotNil(viewModel.divisionCellModels)
+        
+    }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 class HolidayViewModel: NSObject {
     // MARK: - Variables
-    var holidayService: HolidayServiceProtocol
+    private var holidayService: HolidayServiceProtocol
     var reloadTableView: (() -> Void)?
     var holidayCellModels = [HolidayCellModel]() {
         didSet {

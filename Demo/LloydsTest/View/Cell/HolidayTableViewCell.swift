@@ -13,8 +13,8 @@ class HolidayTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var buntingImage: UIImageView!
     // MARK: - Variables
-    class var identifier: String { return String(describing: self) }
-    class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
+    static var identifier: String { return String(describing: self) }
+    static var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
     var cellViewModel: HolidayCellModel? {
         didSet {
             dateLabel.text  = cellViewModel?.date

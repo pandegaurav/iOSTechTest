@@ -44,4 +44,11 @@ final class HolidayViewModelTests: XCTestCase {
         XCTAssertNotNil(holidayCellModel)
 
     }
+    
+    func test_loadDatafromMock(){
+        viewModel.loadDatafromMock(division: "england-and-wales")
+        XCTAssertNotNil(viewModel.holidayCellModels)
+        
+    }
+ 
 }
