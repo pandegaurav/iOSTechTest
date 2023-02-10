@@ -31,7 +31,12 @@ class HolidayListViewController: UIViewController {
     }
     // Fetch list of holidays as per the Division
     func getHolidayList() {
-        viewModel.getHolidaysList(division: divisionName ?? "")
+        viewModel.getHolidaysList(division: divisionName ?? "") { response in
+            if response {
+            } else {
+                self.viewModel.loadDatafromMock(division: self.divisionName ?? "")
+            }
+        }
         viewModel.reloadTableView = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()

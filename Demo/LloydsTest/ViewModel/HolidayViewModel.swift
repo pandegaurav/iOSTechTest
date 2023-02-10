@@ -20,13 +20,27 @@ class HolidayViewModel: NSObject {
         self.holidayService = holidayService
     }
     // Get holiday list of Specific division of UK
-    func getHolidaysList(division: String) {
+    func getHolidaysList(division: String, completion: @escaping ((Bool) -> ())) {
         holidayService.getHolidayList { success, model, error in
             if success, let holidays = model {
                 self.fetchData(holidays: holidays, division: division)
+                completion(true)
             } else {
                 print(error!)
+                completion(false)
             }
+        }
+    }
+    func loadDatafromMock(division: String) {
+        if let path = Bundle.main.path(forResource: "Mock", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let model = try JSONDecoder().decode(Holiday.self, from: data)
+                self.fetchData(holidays: model, division: division)
+            } catch {
+                print(error)
+            }
+        } else {
         }
     }
     func fetchData(holidays: Holiday, division: String) {
